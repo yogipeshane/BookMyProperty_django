@@ -1,0 +1,44 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} User Information {% endblock title%}
+
+{% block content %}
+
+<div class="container containerColor my-5">
+ <div class="row mb-5">
+  <h2 class="text-warning" >Welcome <span class="text-capitalize "> {{request.user}} </span></h2>
+ </div>
+ <div class="row">
+  <div class="col-sm-3 border-right border-warning text-warning">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'userinfo' %}" class="btn {{active}}">User Information</a></li>
+    <li class="d-grid"><a href="{% url 'userprofile' %}" class="btn ">User Profile</a></li>
+   </ul>
+  </div>
+
+  <div class="col-sm-7 offset-sm-2">
+
+   <form action="" method="post">
+        {% csrf_token %}
+
+        {% if messages %}
+        {% for message in messages %}
+            <p {% if message.tags %} class="alert alert-{{ message.tags}} mb-5" {% endif %}>{{message}}</p>
+        {% endfor %}
+        {% endif %}
+
+       {% for fm in form %}
+              <div class="form-group col-lg-6 mb-3">
+                  {{fm.label_tag}} {{ fm }} <small class="text-danger">{{ fm.errors|striptags }}</small><br>
+              </div>
+        {% endfor %}
+       <div class="col-sm-12 mt-3">
+            <button type="submit" class="btn btn-primary mb-3">Submit</button>
+       </div>
+   </form>
+
+  </div>
+ </div>
+</div>
+
+{% endblock content %}

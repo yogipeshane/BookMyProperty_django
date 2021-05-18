@@ -1,0 +1,57 @@
+{% load static %}
+
+<div class="border-bottom border-warning h-100">
+
+    <nav class="navbar navbar-expand-lg sticky-top ">
+        <a class="navbar-brand" href="#">
+            <center>
+                <img src="{% static 'core/images/airLogo.png' %}" class="rounded-circle" alt="ProfilePic"  width="60px" height="60px">
+                <h2 class="text-white mt-3 mr-3 st-font">Mauli Properties</h2>
+            </center>
+        </a>
+        <!-- Links -->
+        <div class="text-right">
+            <ul class="navbar-nav border-left text-left pl-5 pt-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home'%}">Home</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="{% url 'plans' %}">Plans</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="#">Contact Us</a>
+                </li>
+                <!-- Dropdown -->
+
+                {% if request.user.is_authenticated  %}
+                <li class="nav-item dropdown " style="background-color: #d69200;">
+                  <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" data-toggle="dropdown">
+                    {{request.user}}
+                  </a>
+                  <div class="dropdown-menu dropdownD">
+                        <a class="dropdown-item" href="{% url 'userinfo'%}">User Info</a>
+                        <a class="dropdown-item" href="{% url 'userprofile'%}">User Profile</a>
+                        <a class="dropdown-item" href="">Change Password</a>
+                        <a class="dropdown-item" href="{% url 'logout'%}">Logout</a>
+                  </div>
+                </li>
+
+                {% else %}
+                <li class="nav-item">
+                     <a class="nav-link" href="{% url 'login'%}">Login </a>
+                </li>
+                <li class="nav-item">
+                     <a class="nav-link" href="{% url 'userregistration'%}">Registration </a>
+                </li>
+                {% endif %}
+                <li class="px-1">
+                    <span style="font-size:1.3rem;" class="text-warning"> +91 112233445</span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>

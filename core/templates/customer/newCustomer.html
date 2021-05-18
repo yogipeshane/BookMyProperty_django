@@ -1,0 +1,22 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} Customer Information {% endblock title%}
+
+{% block content %}
+
+<div class="container containerColor my-5">
+      <div class="row">
+          <div class="col-sm-3 border-right border-warning text-warning">
+               <ul class="list-unstyled">
+                <li class="d-grid"><a href="{% url 'customerinfo' %}" class="btn {{active}}">New Customer</a></li>
+                <li class="d-grid"><a href="{% url 'customerinfo' %}" class="btn ">Find Customer </a></li>
+               </ul>
+          </div>
+
+          <div class="col-sm-7 offset-sm-2">
+
+          </div>
+     </div>
+</div>
+
+{% endblock content %}

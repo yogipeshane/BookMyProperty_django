@@ -1,0 +1,67 @@
+/*  Font */
+.st-font{
+    font-family: 'Satisfy', cursive;
+}
+
+html, body {
+    height : 100%;
+    background-color:#000000fa;
+}
+.footerDiv{
+    color:whitesmoke;
+    background-color:#00173d;
+}
+.container-fluid{
+    min-height: 100%;
+}
+
+/* Service Icon color */
+
+.i-color{
+    color:chartreuse;
+}
+
+/* Service subtitle color*/
+
+.ss-color{
+    color: silver;
+}
+.navbar {
+    background-color:#00173d;
+}
+li.nav-item{
+    padding-right: 1.5rem;
+}
+a.nav-link{
+    font-size:1.1rem;
+    color: whitesmoke;
+}
+a.nav-link:hover , a.dropdown-item:hover{
+    color: black;
+    background-color:#e6b800;
+}
+
+a.nav-link.active{
+    color: black;
+    background-color:#ffc107;
+    font-weight: bold;
+}
+.dropdownD{
+    background-color: #3d3d5c;
+    font-size: 1.1rem;
+}
+a.dropdown-item{
+    color: whitesmoke;
+}
+.pageHeaders{
+    color: whitesmoke;
+    font-size: 1.2rem;
+}
+.containerBox{
+    background-color:#011538;
+    border: 1px solid #f09a1a;
+}
+.containerColor{
+    color: #e8ebed;
+}
+

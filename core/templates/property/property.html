@@ -1,0 +1,73 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} Property {% endblock title%}
+
+{% block content %}
+
+<div class="container containerColor my-5">
+
+    {% if mesg %}
+        <div class="text-center  ">
+                <h2 class="text-warning text-center" >{{mesg}}</h2>
+        </div>
+     {% else %}
+        <center>
+            <h3 class="text-warning my-5 border border-warning py-3" style="background-color: #00173d;">{{ propertyList.first.planId.company.company_name}} : {{ propertyList.first.planId.plan_Name}} Project</h3>
+
+        </center>
+        <div class="row">
+            <div class="col-sm-8 ">
+                <img class="border-right border-warning pr-3" src="{{ propertyList.first.planId.plan_image.url}}" alt="" height="100%", width="100%">
+            </div>
+            <div class="col-sm-4 text-justify">
+                <p > Company Name :  <span class="text-warning">{{propertyList.first.planId.company.company_name}} </span> </p>
+                <p > Company Owner :  <span class="text-warning">{{propertyList.first.planId.company.company_owner}} </span> </p>
+                <p > Company Address :  <span class="text-warning">{{propertyList.first.planId.company.company_Location}}, {{propertyList.first.planId.company.company_city}}, {{propertyList.first.planId.company.company_state}} - {{propertyList.first.planId.company.company_pincode}}. </span> </p>
+                <p > Company Registration Number :  <span class="text-warning">{{propertyList.first.planId.company.company_RegNo}} </span> </p>
+                <hr style="width:100%", size="3", color=white>
+                <p > Plan :  <span class="text-warning">{{propertyList.first.planId.plan_Name}}: {{propertyList.first.planId.plan_Number}}  </span> contains only <span class="text-warning">{{propertyList.first.property_Type}}s</span> </p>
+                <p >It is Located in <span class="text-warning">{{propertyList.first.planId.plan_Location}} , {{propertyList.first.planId.plan_City}} </span>
+                                      in <span class="text-warning"> {{propertyList.first.planId.plan_Area_In_Acres}}</span> acres.</p>
+                <p><span class="text-primary"> {{propertyList.first.planId.plan_description}} </span></p>
+                <center><a href="{% url 'aminities' propertyList.first.planId.id %}" class="btn btn-primary my-2 " >Show Aminities</a></center>
+            </div>
+        </div>
+        <div class="row my-5">
+            {% for property in propertyList %}
+             <div class="col-sm-4 mb-4  ">
+                  <div class="item border p-3 ">
+                      <center><div class="fw-bold text-warning"><h4>Plot No : {{property.property_Number}}</h4></div></center>
+                      <hr style="width:100%", size="3", color=white>
+                      <div>
+                          <p>Property Type : <span class="text-warning">{{property.property_Type}}</span></p>
+                          <p>Total Area : <span class="text-warning">{{property.total_Area_Of_Property}} </span>   [ width: <span class="text-warning">{{property.property_width}}</span> *  height: <span class="text-warning">{{property.property_height}}</span> ]</p>
+                          <p>Property Rate : <span class="text-warning">{{property.rate_Of_Plot}}</span></p>
+                          <p>Availability : <span class="text-warning">{{property.property_availability}}</span></p>
+                          <p>Stamp Duty : <span class="text-warning">{{property.stamp_Duty}}</span></p>
+                          <p>RL : <span class="text-warning">{% if property.RL %} Done {% else %} pending {% endif %}</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             FSI : <span class="text-warning">{% if property.FSI %} Done {% else %} pending {% endif %}</span>
+                          </p>
+                          <p>
+                             NA : <span class="text-warning">{% if property.NA %} Done {% else %} pending {% endif %}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                             Registry : <span class="text-warning">{% if property.Registry %} Done {% else %} pending {% endif %}</span>
+                          </p>
+                          {% if property.property_availability == 'Available' %}
+                            <center><a href="" class="btn btn-primary mt-3" >Intrested</a></center>
+                          {% elif property.property_availability == 'Hold' %}
+                            <center><a href="" class="btn btn-warning  mt-3" >Intrested</a></center>
+                          {% elif property.property_availability == 'Sold' %}
+                            <center><a href="#" class="btn btn-danger disabled mt-3" >Already Booked </a></center>
+                          {% endif%}
+
+                      </div>
+                  </div>
+
+
+             </div>
+          {% endfor %}
+        </div>
+
+    {% endif%}
+</div>
+
+{% endblock content %}

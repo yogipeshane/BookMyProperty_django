@@ -1,0 +1,69 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title%}
+<style>
+  /* Make the image fully responsive */
+  .carousel-inner img {
+    width: 100%;
+    height: 100%;
+  }
+  </style>
+{% block content %}
+    <div class="mt-5">
+        <div class="row">
+            <div class="col-sm-12">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+                  <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                  </ul>
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                          <img src="{% static 'core/images/img4.jpg' %}"   alt="Los Angeles" width="1400" height="400">
+                          <div class="carousel-caption">
+                            <h3>Beltarodi nagpur</h3>
+                            <p>Thank you for visiting</p>
+                          </div>
+                    </div>
+                    <div class="carousel-item">
+                          <img src="{% static 'core/images/img5.jpg' %}" alt="Chicago" width="1400" height="400" >
+                          <div class="carousel-caption">
+                            <h3>Airport Nagpur</h3>
+                            <p>Thank you!</p>
+                          </div>
+                    </div>
+                    <div class="carousel-item">
+                      <img src="{% static 'core/images/img6.jpg' %}" alt="New York" width="1400" height="400" >
+                          <div class="carousel-caption">
+                            <h3>Besa Nagpur</h3>
+                            <p>Thank You</p>
+                          </div>
+                    </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                  </a>
+                  <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                  </a>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class=" mt-5 text-white mx-5 text-justify">
+            <div class="px-4" style="line-height:2rem;">
+                <p style="text-indent:100px;">Take a moment to utilize our city's list on the go and locate your property from the array of listings in your dream city.	icon city
+LOCATION .The only most important thing in real estate is Location. Search neighborhood and communities to narrow your search.	icon location
+PROJECT
+                </p>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock content %}

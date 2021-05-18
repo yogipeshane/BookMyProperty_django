@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block title %} Seller Profile {% endblock title%}
+
+{% block content %}
+
+<div class="container containerColor my-5">
+ <div class="row mb-5">
+  <h2 class="text-warning" >Welcome <span class="text-capitalize "> {{request.user}} </span></h2>
+ </div>
+ <div class="row">
+  <div class="col-sm-2 border-right border-warning text-warning">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'sellerinfo' %}" class="btn ">Seller Information</a></li>
+    <li class="d-grid"><a href="{% url 'sellerprofile' %}" class="btn {{active}}">Seller Profile</a></li>
+   </ul>
+  </div>
+
+  <div class="col-sm-7 offset-sm-2 border border-warning" style="background-color: #011538;">
+      <div class="text-center">
+          <h3 class="py-3 border-bottom text-info font-italic">Personal Information</h3>
+      </div>
+      <div>
+          <span style="font-size: 1.4rem;" >Basic Information :</span>
+          <p class="mt-3">Company Name: <span class="text-warning">{{seller.company}} </span> </p>
+          <p>Seller Name: <span class="text-warning">{{seller.sellerName}} </span> </p>
+          <p>Gender: <span class="text-warning">{{seller.gender}} </span></p>
+          <p>Contact Number:<span class="text-warning"> {{seller.contactNumber}} </span></p>
+          <p>Email Id:<span class="text-warning"> {{seller.emailId}} </span></p>
+
+          <span style="font-size: 1.4rem;">Address :</span>
+          <p><span class="text-warning">{{seller.locality}} , {{seller.area}}, {{seller.city}} , {{seller.state}},{{seller.zipcode}}</span></p>
+
+      </div>
+
+
+
+
+  </div>
+ </div>
+</div>
+
+{% endblock content %}
